@@ -35,7 +35,6 @@
                             <th>Merk</th>
                             <th>Harga Beli</th>
                             <th>Harga Jual</th>
-                            <th>Diskon</th>
                             <th>Stok</th>
                             <th width="15%"><i class="fa fa-cog"></i></th>
                         </thead>
@@ -71,7 +70,6 @@
                 {data: 'merk'},
                 {data: 'harga_beli'},
                 {data: 'harga_jual'},
-                {data: 'diskon'},
                 {data: 'stok'},
                 {data: 'aksi', searchable: false, sortable: false},
             ]
@@ -85,7 +83,7 @@
                         table.ajax.reload();
                     })
                     .fail((errors) => {
-                        alert('Tidak dapat menyimpan data');
+                        alert('Tidak dapat menyimpan data ' + errors);
                         return;
                     });
             }
@@ -122,8 +120,8 @@
                 $('#modal-form [name=merk]').val(response.merk);
                 $('#modal-form [name=harga_beli]').val(response.harga_beli);
                 $('#modal-form [name=harga_jual]').val(response.harga_jual);
-                $('#modal-form [name=diskon]').val(response.diskon);
                 $('#modal-form [name=stok]').val(response.stok);
+                $('#modal-form [name=kode_produk]').val(response.kode_produk);
             })
             .fail((errors) => {
                 alert('Tidak dapat menampilkan data');
